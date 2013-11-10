@@ -1,12 +1,13 @@
 require 'rubygems'
-require 'bundler'
 
-Bundler.require
 $LOAD_PATH.unshift File.dirname(__FILE__) 
-
 require 'init'
 
 set :run, false
 set :environment, :development
+set :views, 'templates'
 
-run Sinatra::Application
+require 'sidekiq/web'
+run Rack::URLMap.new('/' => Sinatra::Application, '/sidekiq' => Sidekiq::Web)
+
+# run Sinatra::Application

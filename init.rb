@@ -5,9 +5,35 @@ require 'sinatra'
 require 'JSON'
 require 'asciidoctor'
 require 'mail'
+require 'pp'
+require 'redis'
+require 'tilt'
+
+# $redis = Redis.new
+
+# class MailWorker
+#   include Sidekiq::Worker
+
+#   def perform(msg="lulz you forgot a msg!")
+#     $redis.lpush("sinkiq-example-messages", msg)
+#   end
+# end
+
+module Sinatra::Templates
+    def asciidoctor(template, options = {}, locals = {}, &block)
+      render(:ad, template, options, locals, &block)
+    end
+end
 
 get '/' do 
-	"hello,world. Welcome to the world of Sinatra"
+	# "hello,world. Welcome to the world of Sinatra"
+	# "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+	request.pretty_inspect()
+end	
+
+get '/foo' do
+	# erb :foo
+	asciidoctor :'admissions/ApplicationReceived'
 end
 
 post '/mail' do
