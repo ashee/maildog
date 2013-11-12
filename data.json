@@ -1,3 +1,22 @@
 data={
-	"event" : "admissions.ApplicationReceived"
-} 
+	"events" : [
+		{ 
+			"event" : "admissions.ApplicationReceived"
+			,"from" : "amitava@umich.edu"
+			,"to" : "amitava@umich.edu"
+			,"subject" : "We have received your application"
+			,"name" : "Amitava Shee"
+			,"contact-name" : "Rob Pike"
+			,"contact-role" : "Director Admissions"
+		}
+		,{
+			"event" : "admissions.ApplicationReceived"
+			,"from" : "amitava@umich.edu"
+			,"to" : "amitava@umich.edu"
+			,"subject" : "We have received your application"
+			,"name" : "Mike Bundy"
+			,"contact-role" : "Director Admissions"
+		}
+	]
+}
+
