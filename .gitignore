@@ -1,4 +1,5 @@
 log
+ssl
 **/*.class
 tmp/
 *.war
