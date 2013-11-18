@@ -6,8 +6,21 @@ data={
 			,"to" : "amitava@umich.edu"
 			,"subject" : "We have received your application"
 			,"name" : "Amitava Shee"
-			,"contact-name" : "Rob Pike"
-			,"contact-role" : "Director Admissions"
+			,"contact" : {
+				"name" : "Rob Pike"
+				,"role" : "Admissions Director"
+			}
+		}
+		,{
+			"event" : "admissions.ApplicationReceived"
+			,"from" : "amitava@umich.edu"
+			,"to" : "Robert Taylor <robertt@rtnetworks.com>"
+			,"subject" : "We have received your application"
+			,"name" : "Robert Taylor"
+			,"contact" : {
+				"name" : "Rob Pike"
+				,"role" : "Admissions Director"
+			}
 		}
 		,{
 			"event" : "admissions.ApplicationReceived"
@@ -15,7 +28,10 @@ data={
 			,"to" : "amitava@umich.edu"
 			,"subject" : "We have received your application"
 			,"name" : "Mike Bundy"
-			,"contact-role" : "Director Admissions"
+			,"contact" : {
+				"name" : "Rob Pike"
+				,"role" : "Admissions Director"
+			}
 		}
 	]
 }

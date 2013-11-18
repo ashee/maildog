@@ -1,17 +1,21 @@
-= Hello, {name}!
-Doc Writer <doc@example.com>
+Dear Dr. {{name}},
 
-An introduction to http://asciidoc.org[AsciiDoc].
+Greetings from the MLearning
 
-Hello {name}
+Please answer the question below:
 
-== First Section
+What does the strip below mean?
 
-* item 1
-* item 2
+image::http://intmstat.com/blog/2010/03/ECG-full.jpg[25,25]
+http://mlearning.med.umich.edu/quiz/choice=a[The Lion Needs courage]
 
-With warm regards,
-{contact-name}
-{contact-title}
+http://mlearning.med.umich.edu/quiz/choice=a[The Scarecrow needs a brain]
+
+http://mlearning.med.umich.edu/quiz/choice=a[The Tinman Needs a brain]
+
+
+Sincerely, {{contact.name}}
+
+on behalf of the MLearning Team.
 
 

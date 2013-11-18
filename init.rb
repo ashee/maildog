@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'JSON'
+require 'mustache'
 require 'asciidoctor'
 require 'mail'
 require 'pp'
@@ -22,24 +23,23 @@ class MailWorker
 	for event in data["events"]
 		event_name = event["event"]
 		template = "%s.ad" % File.join('templates', event_name.split('.'))
-		send_mail Tilt.new(template, {:attributes => event }), event
+		asciidoc_input = Mustache.render(IO.read(template), event) # use mustache to expand variables in event hash
+		content = Asciidoctor.render asciidoc_input # use asciidoctor to generate html
+		send_mail event["from"], event["to"], event["subject"], content 
 	end
   end
 
-  def send_mail(template, data)
-	content = template.render
-	puts content
+  def send_mail(from, to, subject, content)
 	mail = Mail.new do
-	  from     data["from"]
-	  to       data["to"]
-	  subject  data["subject"]
+	  from     from
+	  to       to
+	  subject  subject
 	  html_part do
 	      content_type 'text/html; charset=UTF-8'
 	      body content
 	  end
 	end
-	# mail.delivery_method :sendmail
-	# mail.deliver
+	mail.deliver
   end
 end
 
@@ -84,10 +84,10 @@ post '/mail' do
 
 end
 
-if __FILE__ == $0 
+def test_mailworker
 	d = IO.read("data.json").sub /^data=/, ""
 	ed = JSON.parse(d)
 	MailWorker.new.perform(ed)
-	exit 0
+	nil
 end
 

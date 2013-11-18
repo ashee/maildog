@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'jruby-rack'
 gem 'sinatra'
 
+gem 'mustache'
 gem 'asciidoctor'
 gem 'json'
 gem 'mail'
