@@ -10,6 +10,12 @@ Pre-requisites
 1. Install jdk 1.7 
 2. Install JRuby 1.7.6
 3. Reddis 2.6.16
+4. Pre-configured Mail Transfer Agent (MTA). For my development, I am using postfix 
+that comes prebundled in OSX 10.8 MBP. To start postfix, run
+
+```bash
+$ sudo postfix start
+```
 
 Application setup
 =================
