@@ -16,4 +16,4 @@ gem 'sidekiq'
 gem 'sidekiq-status'
 
 # gem 'warbler', "~> 1.4.0.beta2"
-gem install trinidad
+gem 'trinidad'

@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'sinatra'
-require 'JSON'
+require 'json'
 require 'mustache'
 require 'asciidoctor'
 require 'mail'
